@@ -8,11 +8,12 @@ module.exports = {
 
     let id_field = app.autoID.increment('realmodel_max_id')
     let corresponding_transaction = this.trs.id
-    let senderId_of_transaction = this.block.senderId
-    let block_timestamp = this.block.timestamp
+    let senderId_of_transaction = this.trs.senderId
+    app.logger.info(`block: ${JSON.stringify(this.trs, null, 2)}`)
+    let block_timestamp = this.trs.timestamp
 
     // create DB entry
-    app.sdb.create('RealDatModels', {
+    app.sdb.create('RealDataModel', {
       id_field: id_field,
       corresponding_transaction: corresponding_transaction,
       senderId_of_transaction: senderId_of_transaction,
