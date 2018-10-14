@@ -10,14 +10,14 @@ module.exports = {
     let corresponding_transaction = this.trs.id
     let senderId_of_transaction = this.trs.senderId
     app.logger.info(`block: ${JSON.stringify(this.trs, null, 2)}`)
-    let block_timestamp = this.trs.timestamp
+    let timestamp_of_transaction = this.trs.timestamp
 
     // create DB entry
     app.sdb.create('RealDataModel', {
       id_field: id_field,
       corresponding_transaction: corresponding_transaction,
       senderId_of_transaction: senderId_of_transaction,
-      block_timestamp: block_timestamp,
+      timestamp_of_transaction: timestamp_of_transaction,
       random_field: parameter_1
     })
   }

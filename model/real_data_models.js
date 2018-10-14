@@ -20,7 +20,7 @@ module.exports = {
       not_null: true
     },
     {
-      name: 'block_timestamp',
+      name: 'timestamp_of_transaction',
       type: 'Number',
       not_null: true 
     },
