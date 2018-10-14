@@ -1,8 +1,14 @@
 module.exports = async function () {
   app.logger.info('init.js...')
 
-  app.registerContract(1000, 'contract_file.functionName')
-  // 5 XAS
+  let contractNum = 1000
+  let fileName = 'contract_file'
+  let functionName = 'functionName'
+  let whereToFindContract = `${fileName}.${functionName}`
+  app.registerContract(contractNum, whereToFindContract)
+
+  // set fee of 5 XAS for contract 1000
   let fee = String(5 * 1e8)
-  app.registerFee(1001, fee, 'XAS')
+  let currency = 'XAS'
+  app.registerFee(contractNum, fee, currency)
 }
